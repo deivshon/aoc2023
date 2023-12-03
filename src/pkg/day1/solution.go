@@ -69,8 +69,8 @@ var digitLookup map[string]int = map[string]int{
 
 func SolveSecond() (string, error) {
 	sum := 0
-	var regexTwoNos *regexp.Regexp = regexp.MustCompile(`^.*?(\d|one|two|three|four|five|six|seven|eight|nine).*(\d|one|two|three|four|five|six|seven|eight|nine).*$`)
-	var regexOneNo *regexp.Regexp = regexp.MustCompile(`^.*(\d|one|two|three|four|five|six|seven|eight|nine).*$`)
+	regexTwoNos := regexp.MustCompile(`^.*?(\d|one|two|three|four|five|six|seven|eight|nine).*(\d|one|two|three|four|five|six|seven|eight|nine).*$`)
+	regexOneNo := regexp.MustCompile(`^.*(\d|one|two|three|four|five|six|seven|eight|nine).*$`)
 
 	for _, l := range lines {
 		var firstDigit *string

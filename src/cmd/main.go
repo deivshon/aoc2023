@@ -26,6 +26,6 @@ func main() {
 		}
 		elapsedSecond := end.Sub(start)
 
-		fmt.Printf("day %02d: %8v - %-10v | %8v - %-10v\n", s.Day, firstSolution, elapsedFirst, secondSolution, elapsedSecond)
+		fmt.Printf("day %02d: %-10v%-10v | %-10v%-10v\n", s.Day, firstSolution, elapsedFirst, secondSolution, elapsedSecond)
 	}
 }

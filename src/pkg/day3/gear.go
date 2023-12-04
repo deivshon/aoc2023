@@ -2,8 +2,8 @@ package day3
 
 import (
 	"fmt"
-	"main/src/pkg/utils"
 	"strconv"
+	"unicode"
 )
 
 type VerticalDirection int
@@ -22,9 +22,9 @@ func getSingleVerticalDirectionAdjecents(grid []string, lineIdx int, starIdx int
 	verticalNums := []int{}
 	errs := []error{}
 
-	verticalCentreIsDigit := utils.IsDigit(grid[analyzedLineIdx][starIdx])
-	verticalRightIsDigit := notRightBorder && utils.IsDigit(grid[analyzedLineIdx][starIdx+1])
-	verticalLeftIsDigit := notLeftBorder && utils.IsDigit(grid[analyzedLineIdx][starIdx-1])
+	verticalCentreIsDigit := unicode.IsDigit(rune(grid[analyzedLineIdx][starIdx]))
+	verticalRightIsDigit := notRightBorder && unicode.IsDigit(rune(grid[analyzedLineIdx][starIdx+1]))
+	verticalLeftIsDigit := notLeftBorder && unicode.IsDigit(rune(grid[analyzedLineIdx][starIdx-1]))
 	if verticalCentreIsDigit {
 		verticalCentreNumStart, verticalCentreNumEnd := getStartEndDigitIdx(grid, analyzedLineIdx, starIdx)
 		verticalCentreNum, err := strconv.Atoi(grid[analyzedLineIdx][verticalCentreNumStart : verticalCentreNumEnd+1])
@@ -95,7 +95,7 @@ func getLateralAdjacents(grid []string, lineIdx int, starIdx int) ([]int, error)
 	notLeftBorder := starIdx != 0
 
 	lateralNums := []int{}
-	if notRightBorder && utils.IsDigit(grid[lineIdx][starIdx+1]) {
+	if notRightBorder && unicode.IsDigit(rune(grid[lineIdx][starIdx+1])) {
 		rightNumStart, rightNumEnd := getStartEndDigitIdx(grid, lineIdx, starIdx+1)
 		rightNum, err := strconv.Atoi(grid[lineIdx][rightNumStart : rightNumEnd+1])
 		if err != nil {
@@ -104,7 +104,7 @@ func getLateralAdjacents(grid []string, lineIdx int, starIdx int) ([]int, error)
 
 		lateralNums = append(lateralNums, rightNum)
 	}
-	if notLeftBorder && utils.IsDigit(grid[lineIdx][starIdx-1]) {
+	if notLeftBorder && unicode.IsDigit(rune(grid[lineIdx][starIdx-1])) {
 		leftNumStart, leftNumEnd := getStartEndDigitIdx(grid, lineIdx, starIdx-1)
 		leftNum, err := strconv.Atoi(grid[lineIdx][leftNumStart : leftNumEnd+1])
 		if err != nil {

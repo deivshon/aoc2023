@@ -1,10 +1,10 @@
 package day3
 
-import "main/src/pkg/utils"
+import "unicode"
 
 func getEndDigitIndex(grid []string, lineIdx int, middleDigitIdx int) int {
 	i := middleDigitIdx
-	for i < len(grid[lineIdx]) && utils.IsDigit(grid[lineIdx][i]) {
+	for i < len(grid[lineIdx]) && unicode.IsDigit(rune(grid[lineIdx][i])) {
 		i++
 	}
 	i--
@@ -14,7 +14,7 @@ func getEndDigitIndex(grid []string, lineIdx int, middleDigitIdx int) int {
 
 func getStartDigitIndex(grid []string, lineIdx int, middleDigitIdx int) int {
 	i := middleDigitIdx
-	for i >= 0 && utils.IsDigit(grid[lineIdx][i]) {
+	for i >= 0 && unicode.IsDigit(rune(grid[lineIdx][i])) {
 		i--
 	}
 	i++

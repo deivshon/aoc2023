@@ -1,9 +1,9 @@
 package day3
 
-import "main/src/pkg/utils"
+import "unicode"
 
 func isSymbol(c byte) bool {
-	return !utils.IsDigit(c) && c != 46
+	return !unicode.IsDigit(rune(c)) && c != '.'
 }
 
 func isCloseToSymbol(grid []string, lineIdx int, digitIdx int) bool {

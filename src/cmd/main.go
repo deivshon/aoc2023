@@ -22,7 +22,7 @@ func main() {
 		end = time.Now()
 
 		if err != nil {
-			utils.Failure(fmt.Sprintf("second solution of day %v returned an erorr: %v", s.Day, err))
+			utils.Failure(fmt.Sprintf("second solution of day %v returned an error: %v", s.Day, err))
 		}
 		elapsedSecond := end.Sub(start)
 

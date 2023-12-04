@@ -4,6 +4,7 @@ import (
 	"main/src/pkg/day1"
 	"main/src/pkg/day2"
 	"main/src/pkg/day3"
+	"main/src/pkg/day4"
 )
 
 type Solution struct {
@@ -27,5 +28,10 @@ var Solutions = []Solution{
 		Day:         3,
 		SolveFirst:  day3.SolveFirst,
 		SolveSecond: day3.SolveSecond,
+	},
+	{
+		Day:         4,
+		SolveFirst:  day4.SolveFirst,
+		SolveSecond: day4.SolveSecond,
 	},
 }

@@ -8,10 +8,18 @@ import (
 	"main/src/pkg/day5"
 )
 
+const SolutionNotComputed = "not computed"
+
 type Solution struct {
-	Day         int
-	SolveFirst  func() (string, error)
-	SolveSecond func() (string, error)
+	Day                     int
+	SolveFirst              func() (string, error)
+	SolveSecond             func() (string, error)
+	InefficientResultFirst  *InefficientResult
+	InefficientResultSecond *InefficientResult
+}
+
+type InefficientResult struct {
+	BenchmarkedTime string
 }
 
 var Solutions = []Solution{
@@ -39,5 +47,8 @@ var Solutions = []Solution{
 		Day:         5,
 		SolveFirst:  day5.SolveFirst,
 		SolveSecond: day5.SolveSecond,
+		InefficientResultSecond: &InefficientResult{
+			BenchmarkedTime: "1m20s",
+		},
 	},
 }

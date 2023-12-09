@@ -6,6 +6,7 @@ import (
 	"main/src/pkg/day3"
 	"main/src/pkg/day4"
 	"main/src/pkg/day5"
+	"main/src/pkg/day6"
 )
 
 const SolutionNotComputed = "not computed"
@@ -50,5 +51,10 @@ var Solutions = []Solution{
 		InefficientResultSecond: &InefficientResult{
 			BenchmarkedTime: "1m20s",
 		},
+	},
+	{
+		Day:         6,
+		SolveFirst:  day6.SolveFirst,
+		SolveSecond: day6.SolveSecond,
 	},
 }

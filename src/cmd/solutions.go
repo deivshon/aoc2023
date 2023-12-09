@@ -7,6 +7,7 @@ import (
 	"main/src/pkg/day4"
 	"main/src/pkg/day5"
 	"main/src/pkg/day6"
+	"main/src/pkg/day7"
 )
 
 const SolutionNotComputed = "not computed"
@@ -56,5 +57,10 @@ var Solutions = []Solution{
 		Day:         6,
 		SolveFirst:  day6.SolveFirst,
 		SolveSecond: day6.SolveSecond,
+	},
+	{
+		Day:         7,
+		SolveFirst:  day7.SolveFirst,
+		SolveSecond: day7.SolveSecond,
 	},
 }

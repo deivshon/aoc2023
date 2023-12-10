@@ -27,7 +27,7 @@ func parseInput(input string) (DesertTravel, error) {
 	desertMap := make(map[[waypointLength]byte]DesertLookup, len(waypointMatches))
 	for _, w := range waypointMatches {
 		if len(w) != 4 {
-			return DesertTravel{}, fmt.Errorf("got wrong number of capture groups in waypoints line: `%v`, expected 3", len(w)-1)
+			return DesertTravel{}, fmt.Errorf("got wrong number of capture groups in waypoints line: `%v`, expected %v", len(w)-1, waypointLength)
 		}
 
 		sourceWaypoint, err := parseWaypointCode(w[sourceWaypointIdx])

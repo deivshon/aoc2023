@@ -67,15 +67,22 @@ func SolveSecond() (string, error) {
 			go func(start int, length int) {
 				defer wg.Done()
 
+				var localLowestLocation *int = nil
 				for seed := start; seed < start+length; seed++ {
 					mappedValue := seed
 					for _, m := range almanac.Maps {
 						mappedValue = getCorrespondingMapValue(mappedValue, m)
 					}
 
+					if localLowestLocation == nil || *localLowestLocation > mappedValue {
+						localLowestLocation = &mappedValue
+					}
+				}
+
+				if localLowestLocation != nil {
 					mu.Lock()
-					if lowestLocation == nil || *lowestLocation > mappedValue {
-						lowestLocation = &mappedValue
+					if lowestLocation == nil || *lowestLocation > *localLowestLocation {
+						lowestLocation = localLowestLocation
 					}
 					mu.Unlock()
 				}

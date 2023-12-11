@@ -51,7 +51,7 @@ var Solutions = []Solution{
 		SolveFirst:  day5.SolveFirst,
 		SolveSecond: day5.SolveSecond,
 		InefficientResultSecond: &InefficientResult{
-			BenchmarkedTime: "1m20s",
+			BenchmarkedTime: "30s",
 		},
 	},
 	{
